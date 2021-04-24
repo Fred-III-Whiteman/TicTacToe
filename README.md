@@ -12,7 +12,7 @@ Tic Tac Toe, Exes n' Oes if you will, O'sies even.
 
 - [ ] Incorporate the .cover class and block the user from selecting or hovering over tiles
 
--  [] add functionality to .gameType
+-  [ ] add functionality to .gameType
     - [ ] If single player it should read "Vs. AI"
     - [ ] If multi-player it should say "Player 1's turn/ Player 2's turn"
     - [ ] Hide once game is over
