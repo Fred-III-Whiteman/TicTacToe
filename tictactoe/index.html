@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <div class="start">
+        <div class="welcome">
+            <blockquote>Welcome to my Tic Tac Toe game. This is based off of <a href="https://github.com/WebDevSimplified/JavaScript-Tic-Tac-Toe" style="cursor: pointer;">Web Dev Simplified's</a> code, but I've re-worked it to include the option to play against a minimax algorithm AI. Please enjoy.</blockquote>
+        </div>
+        <button id="1" style="cursor: pointer;">Single-Player</button>&nbsp;&nbsp;
+        <button id="2" style="cursor: pointer;">Multi-Player</button>
+    </div>
+    <div class="cover"></div>
+    <div class="gameType"></div>
+    <div class="board">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+    </div>
+    <div class="gameOver">
+        <div class="winner"></div>
+        <button id="playAgain" style="cursor: pointer;">Play Again</button>
+        <button id="quit" style="cursor: pointer;">Quit</button>
+    </div>
+</body>
+</html>

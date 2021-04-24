@@ -1,0 +1,216 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --cell-size: 100pX;
+    --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+body {
+    margin: 0;
+    background-color: #d3d3d3;
+}
+
+.board {
+    height: 80vh;
+    width: 100vw;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1pX solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7) {
+    border-bottom: none;
+}
+
+.cell.X,
+.cell.O {
+    cursor: not-allowed;
+}
+
+.cell.X::before,
+.cell.X::after,
+.cell.O::before {
+    background-color: black;
+}
+
+.board.X .cell:not(.X):not(.O):hover::before,
+.board.X .cell:not(.X):not(.O):hover::after,
+.board.O .cell:not(.X):not(.O):hover::before {
+    background-color: grey;
+}
+
+.cell.X::before,
+.cell.X::after,
+.board.X .cell:not(.X):not(.O):hover::before,
+.board.X .cell:not(.X):not(.O):hover::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size) * .15);
+    height: var(--mark-size);
+}
+
+.cell.X::before,
+.board.X .cell:not(.X):not(.O):hover::before {
+    transform: rotate(45deg);
+}
+
+.cell.X::after,
+.board.X .cell:not(.X):not(.O):hover::after {
+    transform: rotate(-45deg);
+}
+
+.cell.O::before,
+.cell.O::after,
+.board.O .cell:not(.X):not(.O):hover::before,
+.board.O .cell:not(.X):not(.O):hover::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.cell.O::before,
+.board.O .cell:not(.X):not(.O):hover::before {
+    width:var(--mark-size);
+    height: var(--mark-size);
+}
+
+.cell.O::after,
+.board.O .cell:not(.X):not(.O):hover::after {
+    width: calc(var(--mark-size) * .7);
+    height: calc(var(--mark-size) * .7);
+    background-color: #d3d3d3;
+}
+
+.gameOver {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .9);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    flex-direction: column;
+}
+
+.gameOver button {
+    font-size: 3rem;
+    background-color: white;
+    transition-duration: 0.4s;
+    border: 1pX solid #555;
+    padding: .25em .5em;
+    cursor: pointer;
+}
+
+.gameOver button:hover {
+    background-color: #555;
+    color: white;
+    border-color: white;
+}
+
+.gameOver.show,
+.start.show,
+.gameType.show,
+.cover.show {
+    display: flex;
+}
+
+.start {
+    height: 20vh;
+    width: 100vw;
+    font-family: 'Noto Serif', serif;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.start button {
+    border: 2px solid #555;
+    background-color: #555;
+    border-radius: 4px;
+    color: white;
+    padding: 15px 32px;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2em;
+
+}
+
+.start button:hover {
+    background-color: #d3d3d3;
+}
+
+.welcome a {
+    text-decoration: none;  
+    color: rgba(0, 87, 200, 0.904);
+}
+
+.welcome a:hover {
+    text-decoration: underline;
+}
+
+.welcome a:visited {
+    color: #551a8b;
+}
+
+.gameType {
+    height: 10vh;
+    width: 100vw;
+    font-family: 'Noto Serif', serif;
+    font-size: 5rem;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.cover {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
